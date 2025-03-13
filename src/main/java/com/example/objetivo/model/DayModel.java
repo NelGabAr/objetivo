@@ -29,6 +29,7 @@ public class DayModel {
     public DayModel(int dayNumber, MonthModel monthModel) {
         this.dayNumber = dayNumber;
         this.monthModel = monthModel;
+        this.sells = 0L;
 
     }
 

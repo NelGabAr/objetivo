@@ -8,17 +8,22 @@
 
 
 
-<form action="/" method="post" >
-
+<form action="/table" method="post" >
+    <input type="hidden" name="monthId" value="{{monthId}}">
     <table>
 
         <tbody>
         {{#days}}
             <tr style="margin: 10px">
                 {{dayNumber}}
-
+                <label>
+                    <input type="text" name="{{dayNumber}}" value = {{sells}} placeholder={{sells}}>
+                </label>
 
             </tr>
+
+
+
 
 
         {{/days}}

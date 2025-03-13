@@ -45,10 +45,37 @@ public class controllers {
         monthId = monthModel.getId();
 
         model.put("days",dayService.findByMonthModelID(monthId));
+        model.put("monthId",monthId);
         model.put("monthModel",monthModel);
 
 
         return new ModelAndView("table", model);
     }
+    @PostMapping(value = "/table")
+    public  ModelAndView showTable(@RequestParam Long monthId,@RequestParam Map<String,String> values, Map<String,Object> model) {
+        List<DayModel> days = dayService.findByMonthModelID(monthId);
+
+        values.forEach((key,value)->{
+            System.err.println(key+":"+value);
+            if(!key.equals("monthId")){
+
+                int auxKey = Integer.parseInt(key)-1;
+                Long auxValue = Long.parseLong(value);
+
+                days.get(auxKey).setSells(auxValue);
+                dayService.save(days.get(auxKey));
+
+
+            }
+
+        });
+
+
+
+        model.put("days",days);
+        model.put("monthId",monthId);
+        return new ModelAndView("table", model);
+    }
+
 
 }
