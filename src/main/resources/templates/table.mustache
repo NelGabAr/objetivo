@@ -17,7 +17,9 @@
             <tr style="margin: 10px">
                 {{dayNumber}}
                 <label>
-                    <input type="text" name="{{dayNumber}}" value = {{sells}} placeholder={{sells}}>
+                    <input type="text" name="{{dayNumber}}" value = "{{sells}}" placeholder="vacio">
+                    <input type="checkbox" name="h{{dayNumber}}" value= "true" {{#hollyday}}checked{{/hollyday}}>
+                    <input type="hidden" name="h{{dayNumber}}" value="false">
                 </label>
 
             </tr>

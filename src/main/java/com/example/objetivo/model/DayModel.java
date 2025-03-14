@@ -19,7 +19,7 @@ public class DayModel {
     private Long id;
 
     private Boolean hollyday = false;
-    private Long sells;
+    private Double sells;
     private int dayNumber;
 
     @ManyToOne
@@ -29,7 +29,7 @@ public class DayModel {
     public DayModel(int dayNumber, MonthModel monthModel) {
         this.dayNumber = dayNumber;
         this.monthModel = monthModel;
-        this.sells = 0L;
+        this.sells = (double) 0;
 
     }
 

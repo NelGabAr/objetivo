@@ -58,13 +58,19 @@ public class controllers {
         values.forEach((key,value)->{
             System.err.println(key+":"+value);
             if(!key.equals("monthId")){
+                if(key.contains("h")){
+                    String aux =  key.replace("h","");
+                    int auxKey = Integer.parseInt(aux) - 1;
+                    days.get(auxKey).setHollyday(value.equals("true"));
 
-                int auxKey = Integer.parseInt(key)-1;
-                Long auxValue = Long.parseLong(value);
+                }
+                else{
+                    int auxKey = Integer.parseInt(key) - 1;
+                    Double auxValue = Double.parseDouble(value);
 
-                days.get(auxKey).setSells(auxValue);
-                dayService.save(days.get(auxKey));
-
+                    days.get(auxKey).setSells(auxValue);
+                    dayService.save(days.get(auxKey));
+                }
 
             }
 
