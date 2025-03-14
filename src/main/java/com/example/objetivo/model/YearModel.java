@@ -21,8 +21,17 @@ public class YearModel {
 
     private int yearNumber;
 
-    @OneToMany(mappedBy = "yearModel")
+    @OneToMany(mappedBy = "yearModel", cascade = CascadeType.ALL)
     private List<MonthModel> monthModel;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "userModel_id")
+    private UserModel userModel;
+
+
+    public YearModel(int yearNumber, UserModel userModel){
+        this.yearNumber = yearNumber;
+        this.userModel = userModel;
+    }
 
 }

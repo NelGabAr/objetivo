@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+mete aqui un menu de botones que le pertenezcan al usuario
+
+{{userModel.username}}
+{{#userModel}}
+
+    {{#yearModel}}
+        <div>
+            <form action="/month" method="get">
+                <input type="hidden" name="yearID" value="{{id}}">
+                <button type="submit"> {{yearNumber}} </button>
+            </form>
+        </div>
+
+    {{/yearModel}}
+
+{{/userModel}}
+
+
+</body>
+</html>

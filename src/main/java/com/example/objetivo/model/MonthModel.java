@@ -17,6 +17,7 @@ public class MonthModel {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    private Double objetive=0.0;
     private int monthNumber;
     private int totalDays;
 
@@ -27,8 +28,11 @@ public class MonthModel {
     @JoinColumn(name = "yearModel_id")
     private YearModel yearModel;
 
-    public  MonthModel(int monthNumber) {
-        this.monthNumber = monthNumber;totalDays(monthNumber);
+    public  MonthModel(int monthNumber, YearModel yearModel) {
+        this.monthNumber = monthNumber;
+        totalDays(monthNumber);
+        this.yearModel = yearModel;
+
 
     }
 
